@@ -1,32 +1,45 @@
 #include "SortedSetIterator.h"
 #include <exception>
 
-using namespace std;
 
-SortedSetIterator::SortedSetIterator(const SortedSet& m) : multime(m)
-{
-	//TODO - Implementation
+
+struct SortedSetIretartorException : public std::exception{
+		const char* foo() const throw() {
+			return "Function called on invalid iterator";
+		}
+	};
+
+
+SortedSetIterator::SortedSetIterator(const SortedSet& m) : multime(m){
+	currentPositon = 0;
 }
 
-
 void SortedSetIterator::first() {
-	//TODO - Implementation
+	currentPositon = 0;
 }
 
 
 void SortedSetIterator::next() {
-	//TODO - Implementation
+	if(!valid())
+		throw SortedSetIretartorException();
+
+	currentPositon++;
 }
 
 
 TElem SortedSetIterator::getCurrent()
 {
-	//TODO - Implementation
+	if(!(valid()))
+		throw SortedSetIretartorException();
+	if(currentPositon < multime.numberOfElements){
+		return multime.internalArray[currentPositon];
+	}
 	return NULL_TELEM;
 }
 
 bool SortedSetIterator::valid() const {
-	//TODO - Implementation
-	return false;
+	if(currentPositon >= multime.numberOfElements)
+		return false;
+	return true;
 }
 

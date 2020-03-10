@@ -12,8 +12,13 @@ class SortedSetIterator;
 class SortedSet {
 	friend class SortedSetIterator;
 private:
-	//TODO - Representation
+	TElem* internalArray;
+	Relation relation;
+	int arraySize;
+	int numberOfElements;
 
+
+	friend int binarySearch(TElem set, int left, int right, int number);
 public:
 	//constructor
 	SortedSet(Relation r);

@@ -156,7 +156,6 @@ void testRemove(Relation r) {
 		assert(s.remove(i) == false);
 	}
 	assert(s.size() == 0);
-
 	for (int i = -100; i < 100; i = i + 2) { 
 		s.add(i);
 	}
@@ -174,7 +173,6 @@ void testRemove(Relation r) {
 	for (int i = -100; i <= 100; i = i + 2) { 
 		s.add(i);
 	}
-
 	for (int i = 100; i > -100; i--) { 
 		if (i % 2 == 0) {
 			assert(s.remove(i) == true);
@@ -209,7 +207,7 @@ void testRemove(Relation r) {
 		testIteratorSteps(s, r);
 	}
 	assert(s.size() == 0);
-
+	
 }
 
 
