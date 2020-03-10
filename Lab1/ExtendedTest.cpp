@@ -282,7 +282,6 @@ void testIterator(Relation r) {
 
 
 void testQuantity(Relation r) {
-	cout << "Test quantity" << endl;
 	SortedSet s(r);
 	for (int i = 10; i >= 1; i--) {
 		for (int j = -3000; j < 3000; j = j + i) {

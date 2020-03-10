@@ -1,11 +1,6 @@
 #include "SortedSet.h"
 #include "SortedSetIterator.h"
 
-#include <iostream>
-using namespace std;
-
-
-
 int binarySearchLeft(int set[], int left, int right, TElem value){
 	
 
