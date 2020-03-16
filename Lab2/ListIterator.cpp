@@ -1,25 +1,41 @@
 #include "ListIterator.h"
-#include "IndexedList.h"
 #include <exception>
 
+
+struct ListIteratorException : public std::exception{
+    const char* foo() const throw(){
+        return "Function called on invalid iterator";
+    }
+
+};
+
+
 ListIterator::ListIterator(const IndexedList& list) : list(list){
-   //TODO - Implementation
+    currentNode = list.head;
 }
 
 void ListIterator::first(){
-    //TODO - Implementation
+    currentNode = list.head;
 }
 
 void ListIterator::next(){
-    //TODO - Implementation
+    if(!valid()){
+        throw ListIteratorException();
+    }
+    currentNode = currentNode->next;
 }
 
 bool ListIterator::valid() const{
-    //TODO - Implementation
-	return false;
+    if(currentNode == NULL){
+        return false;
+    }
+    return true;
+
 }
 
 TElem ListIterator::getCurrent() const{
-   //TODO - Implementation
-	return NULL_TELEM;
+    if(!valid()){
+        throw ListIteratorException();
+    }
+    return currentNode->data;
 }

@@ -3,14 +3,31 @@
 
 //DO NOT CHANGE THIS PART
 typedef int TElem;
+
 #define NULL_TELEM -11111
+
+typedef struct Node{
+    TElem data;
+    struct Node* next;
+    struct Node* prev;
+} Node;
+
 class ListIterator;
 
 class IndexedList {
 private:
-	//TODO - Representation
-	
+    //the number of elements currently sorted in the list 
+    int length;
+
+    //the data is represented using nodes, keeping track of the content and
+    //the code before and after the current one 
+
+
+    //the first node of the list 
+    Node* head; 
+	Node* tail;
 	//DO NOT CHANGE THIS PART
+
     friend class ListIterator;    
 public:
     // constructor
