@@ -21,14 +21,7 @@ int binarySearchLeft(int set[], int left, int right, TElem value){
 	}
 	return -1;
 }	
-/*
-	for(int i = 0; i < right; i++){
-		if(set[i] == value){
-			return i;
-		}
-	}
-	return -1;
-*/
+
 int binarySearchRight(int set[], int left, int right, TElem value){
 	
 
