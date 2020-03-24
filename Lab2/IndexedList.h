@@ -16,7 +16,7 @@ class ListIterator;
 
 class IndexedList {
 private:
-    //the number of elements currently sorted in the list 
+    //the number of elements currently stored in the list 
     int length;
 
     //the data is represented using nodes, keeping track of the content and
@@ -62,6 +62,12 @@ public:
 
     // searches for an element and returns the first position where the element appears or -1 if the element is not in the list
     int search(TElem e)  const;
+
+
+    //removes every kth element from the list. If the list contains less than k elements, the list is not changes
+    //returns the number of removed elements
+    //throws an exception if k is negative or 0
+    int removeFromKtoK(int k);
 
     // returns an iterator set to the first element of the list or invalid if the list is empty
     ListIterator iterator() const;

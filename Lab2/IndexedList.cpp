@@ -19,15 +19,27 @@ IndexedList::IndexedList() {
     
 }
 
+
+/*
+    Complexity:  O(1), constant, because length is stored separatly 
+*/
 int IndexedList::size() const {
     return length;
 }
 
 
+/*
+    Complexity:  O(1), constant, because length is stored separatly 
+*/
 bool IndexedList::isEmpty() const {
     return length == 0;
 }
 
+/*
+    Complexity: T(n/2) -> O(n)
+    If the position is in the first half, iterate from the head
+    If the position is in the second half(past the midpoint), iterate from the tail 
+*/
 TElem IndexedList::getElement(int pos) const {
     if(pos >= length || pos < 0){
         throw IndexedListException();
@@ -59,6 +71,11 @@ TElem IndexedList::getElement(int pos) const {
     return NULL_TELEM;
 }
 
+/*
+    Complexity: T(n/2) -> O(n)
+    If the position is in the first half, iterate from the head
+    If the position is in the second half(past the midpoint), iterate from the tail 
+*/
 TElem IndexedList::setElement(int pos, TElem e) {
     if(pos >= length || pos < 0){
         throw IndexedListException();
@@ -96,6 +113,7 @@ TElem IndexedList::setElement(int pos, TElem e) {
 
 }
 
+//Complexity: O(1)
 void IndexedList::addToEnd(TElem e) {
     Node* newElem = new Node;
     newElem->data = e;
@@ -113,6 +131,8 @@ void IndexedList::addToEnd(TElem e) {
     length++;
 }
 
+
+//Complexity: O(n)
 void IndexedList::addToPosition(int pos, TElem e) {
     if(pos > length){
         throw IndexedListException();
@@ -147,7 +167,7 @@ void IndexedList::addToPosition(int pos, TElem e) {
 }
 
 
-
+//complexity: O(n)
 TElem IndexedList::remove(int pos) {
     if(pos >= length){
         throw IndexedListException();
@@ -180,7 +200,7 @@ TElem IndexedList::remove(int pos) {
     delete temp;
     return oldValue;
 }
-
+//Complexity: O(n)
 int IndexedList::search(TElem e) const{
     Node* searchNode = head;
     int position = 0;
@@ -192,6 +212,28 @@ int IndexedList::search(TElem e) const{
         position++;
     }
     return -1;
+}
+/*
+    Complexity: O(n)
+
+*/
+int IndexedList::removeFromKtoK(int k){
+    if(k <= 0){
+        throw IndexedListException();
+    }
+    int* elementsToBeRemoved = new int[this->length / k];
+    int counter = 0;
+    for(int i = k - 1; i < this->length; i+=k){
+        if(i >= this->length){
+            break;
+        }
+        elementsToBeRemoved[counter++] = i;
+    }
+    for(int i = counter - 1; i >= 0; i--){
+        this->remove(elementsToBeRemoved[i]);
+    }
+    free(elementsToBeRemoved);
+    return counter;
 }
 
 ListIterator IndexedList::iterator() const {

@@ -1,0 +1,28 @@
+function removeFromKToK(this, k) is:
+//this is IndexedList instance
+//k is integer
+    if k <= 0 then
+        throw Exception
+    end-if
+    counter <- 0
+    elementsToBeRemoved[] //array
+    for i <- k - 1, this->length, k execute
+        if i >= this->length then
+            break
+        end-if
+        elementsToBeRemoved[counter] <- i
+        counter <- counter + 1
+    end-for
+    for i <- counter - 1, -1, -1, execute
+        this->remove(elementsToBeRemoved[i])
+    end-for
+    return counter
+end-function
+
+complexity: 
+    1.) counting elements: T(n/k)
+    2.) removeing an element: T(n) + T(n)
+
+best cases: k <= 0: Theta(1) //exception
+Worst case: Deleting every element: n * T(n)
+Avarage case:  T(n) = T(n/k) + k * T(2n) E O(n)

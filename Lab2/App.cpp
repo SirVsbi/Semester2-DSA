@@ -10,5 +10,19 @@ using namespace std;
 int main(){
     testAll();
     testAllExtended();
-    cout<<"Finished LI Tests!"<<endl;
+    IndexedList testList;
+    for(int i = 0; i < 10; i++)
+    testList.addToEnd(i);
+    ListIterator it = testList.iterator();
+    it.first();
+    while(it.valid()){
+        cout << it.getCurrent() << " ";
+        it.next();
+    }
+    cout << '\n' << testList.removeFromKtoK(2) << '\n';
+    it.first();
+    while(it.valid()){
+        cout << it.getCurrent() << " ";
+        it.next();
+    }
 }
