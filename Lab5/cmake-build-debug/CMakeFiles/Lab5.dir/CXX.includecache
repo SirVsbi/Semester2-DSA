@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/szab/uni/second_semester/DSA/Lab5/App.cpp
+Bag.h
+/home/szab/uni/second_semester/DSA/Lab5/Bag.h
+BagIterator.h
+/home/szab/uni/second_semester/DSA/Lab5/BagIterator.h
+ShortTest.h
+/home/szab/uni/second_semester/DSA/Lab5/ShortTest.h
+ExtendedTest.h
+/home/szab/uni/second_semester/DSA/Lab5/ExtendedTest.h
+iostream
+-
+
+/home/szab/uni/second_semester/DSA/Lab5/Bag.h
+iostream
+-
+
+/home/szab/uni/second_semester/DSA/Lab5/BagIterator.h
+Bag.h
+/home/szab/uni/second_semester/DSA/Lab5/Bag.h
+
+/home/szab/uni/second_semester/DSA/Lab5/ExtendedTest.h
+
+/home/szab/uni/second_semester/DSA/Lab5/ShortTest.h
+
